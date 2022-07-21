@@ -23,7 +23,7 @@ project_id=$4
 policy_type=$5 # FILESYSTEM or CLOUDSOURCE
 base_dir=$(pwd)
 tmp_plan="${base_dir}/tmp_plan" #if you change this, update build triggers
-environments_regex="^(development|non-production|staging|production|shared)$"
+environments_regex="^(development|non-production|production|shared|staging)$"
 
 ## Terraform apply for single environment.
 tf_apply() {
@@ -92,7 +92,7 @@ tf_plan_validate_all() {
       if [[ "$env" =~ $environments_regex ]] ; then
         tf_init "$env_path" "$env" "$component"
         tf_plan "$env_path" "$env" "$component"
-      #  tf_validate "$env_path" "$env" "$policysource" "$component"
+       # tf_validate "$env_path" "$env" "$policysource" "$component"
       else
         echo "$component/$env doesn't match $environments_regex; skipping"
       fi
@@ -181,9 +181,9 @@ single_action_runner() {
             tf_show "$env_path" "$env" "$component"
             ;;
 
-          #validate )
-          #  tf_validate "$env_path" "$env" "$policysource" "$component"
-          #  ;;
+        #   validate )
+        #     tf_validate "$env_path" "$env" "$policysource" "$component"
+        #     ;;
           * )
             echo "unknown option: ${action}"
             ;;

@@ -1,7 +1,7 @@
-# 4-networks
+# 5-projects
 
 This repo is part of a multi-part guide that shows how to configure and deploy
-the ideanomics.com reference architecture.
+the securrency.com reference architecture.
 
 
 <table>
@@ -25,12 +25,12 @@ organizational policy.</td>
 Google Cloud organization that you've created.</td>
 </tr>
 <tr>
-<td>4.networks(this repo)</td>
+<td>4.networks</td>
 <td>Sets up base  shared VPCs with  NAT,
 Private Service networking, serverless vpc connector, and baseline firewall rules for each environment. </td>
 </tr>
 <tr>
-<td>5.projects </td>
+<td>5.projects (this file)</td>
 <td>Sets up a folder structure, projects, and application infrastructure pipeline for applications,
  which are connected as service projects to the shared VPC created in the previous stage.</td>
 </tr>
@@ -38,21 +38,19 @@ Private Service networking, serverless vpc connector, and baseline firewall rule
 </tr>
 </tbody>
 </table>
- 
- 
 
 
- 
- 
 ## Purpose
 
-The purpose of this step is to:
+The purpose of this step is to set up the folder structure, projects for applications that are connected as service projects to the shared VPC created in the previous stage for each customer.
+For each business unit, a shared `app` project is created and Google Cloud Storage buckets for state storage.
 
-Sets up base  shared VPCs with  NAT,
-Private Service networking, serverless vpc connector and baseline firewall rules for each environment.
 
 ## Prerequisites
 
 1. bootstrap executed successfully.
 1. org executed successfully.
 1. environments executed successfully.
+1. networks executed successfully.
+
+
